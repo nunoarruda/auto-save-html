@@ -25,8 +25,8 @@ function headersListener(details) {
         case 'xmlhttprequest':
             if (details.statusCode == 200) {
                 const responseHeaders = details.responseHeaders;
-                const contentType = responseHeaders.find(header => header.name == 'Content-Type');
-                isHTML = contentType.value.includes('text/html');
+                const contentType = responseHeaders.find(header => header.name.toLowerCase() === 'content-type');
+                isHTML = contentType.value.toLowerCase().includes('text/html');
             }
     }
 
