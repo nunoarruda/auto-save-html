@@ -1,6 +1,6 @@
 function restoreOption() {
     function setCurrentChoice(result) {
-        document.querySelector('#target-site').value = result.targetSite || 'https://example.com/*';
+        document.querySelector('#target-site').value = result.targetSite || '*://*.example.com/*';
     }
 
     function onError(error) {

@@ -3,7 +3,7 @@
     "description": "Automatically dumps HTML when browsing a specified site",
     "manifest_version": 2,
     "name": "Auto Save HTML",
-    "version": "1.0",
+    "version": "1.0.1",
     "homepage_url": "https://github.com/nunoarruda/auto-save-html",
 
     "options_ui": {
