@@ -1,29 +1,31 @@
 {
+  "description": "Auto Save HTML is a small extension which can be used to automatically download the HTML document(s) of a specified website when browsing that same website.",
+  "manifest_version": 2,
+  "name": "Auto Save HTML",
+  "version": "1.0.1",
+  "homepage_url": "https://github.com/nunoarruda/auto-save-html",
 
-    "description": "Automatically dumps HTML when browsing a specified site",
-    "manifest_version": 2,
-    "name": "Auto Save HTML",
-    "version": "1.0.1",
-    "homepage_url": "https://github.com/nunoarruda/auto-save-html",
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
 
-    "options_ui": {
-        "page": "options.html",
-        "browser_style": true
-    },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "downloads",
+    "storage"
+  ],
 
-    "permissions": [
-        "webRequest", "webRequestBlocking", "<all_urls>", "downloads", "storage"
-    ],
+  "background": {
+    "scripts": ["background.js"]
+  },
 
-    "background": {
-        "scripts": ["background.js"]
-    },
-
-    "applications": {
-        "gecko": {
-            "id": "nuno@nunoarruda.com",
-            "strict_min_version": "57.0a1"
-        }
+  "applications": {
+    "gecko": {
+      "id": "nuno@nunoarruda.com",
+      "strict_min_version": "57.0a1"
     }
-  
+  }
 }
