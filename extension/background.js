@@ -59,7 +59,7 @@ function onError(error) {
 }
 
 function onGot(item) {
-    const target = item.targetSite || 'https://example.com/*';
+    const target = item.targetSite || '*://*.example.com/*';
 
     browser.webRequest.onBeforeRequest.addListener(
         requestListener,
