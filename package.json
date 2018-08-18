@@ -4,7 +4,7 @@
   "description": "Auto Save HTML is a small extension which can be used to automatically download the HTML document(s) of a specified website when browsing that same website.",
   "main": "manifest.json",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nunoarruda/auto-save-html/issues"
   },
-  "homepage": "https://github.com/nunoarruda/auto-save-html#readme"
+  "homepage": "https://github.com/nunoarruda/auto-save-html#readme",
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  }
 }
