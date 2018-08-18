@@ -5,7 +5,8 @@
     "noImplicitReturns": true,
     "outDir": "extension",
     "sourceMap": true,
-    "target": "es6"
+    "target": "es6",
+    "typeRoots": ["node_modules/web-ext-types"]
   },
   "compileOnSave": true,
   "include": ["src"]
