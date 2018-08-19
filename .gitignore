@@ -58,3 +58,7 @@ typings/
 .env
 
 .DS_Store
+
+# Compiled TypeScript
+extension/*.js
+extension/*.js.map
