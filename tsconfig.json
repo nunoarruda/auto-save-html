@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "dom"],
     "module": "commonjs",
     "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "outDir": "extension",
     "sourceMap": true,
-    "target": "es6",
+    "strict": true,
+    "target": "es2017",
     "typeRoots": ["node_modules/web-ext-types"]
   },
   "compileOnSave": true,
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
