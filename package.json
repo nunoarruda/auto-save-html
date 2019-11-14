@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/nunoarruda/auto-save-html#readme",
   "devDependencies": {
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.3",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
     "web-ext-types": "^3.2.1"
   }
 }
