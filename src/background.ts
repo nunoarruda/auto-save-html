@@ -1,6 +1,6 @@
 let isHTML = false;
 
-function requestListener(details) {
+function requestListener(details: any) {
   const filter = browser.webRequest.filterResponseData(details.requestId);
   const decoder = new TextDecoder("utf-8");
   let responseData = "";
@@ -18,7 +18,7 @@ function requestListener(details) {
   return {};
 }
 
-function headersListener(details) {
+function headersListener(details: any) {
   switch (details.type) {
     case "main_frame":
     case "sub_frame":
@@ -26,7 +26,7 @@ function headersListener(details) {
       if (details.statusCode === 200) {
         const responseHeaders = details.responseHeaders;
         const contentType = responseHeaders.find(
-          header => header.name.toLowerCase() === "content-type"
+          (header: any) => header.name.toLowerCase() === "content-type"
         );
         isHTML = contentType.value.toLowerCase().includes("text/html");
       }
@@ -35,7 +35,7 @@ function headersListener(details) {
   return { responseHeaders: details.responseHeaders };
 }
 
-function createFile(html) {
+function createFile(html: any) {
   const blob = new Blob([html], { type: "text/html" });
   const fileUrl = URL.createObjectURL(blob);
 
@@ -48,19 +48,19 @@ function createFile(html) {
   downloading.then(onStartedDownload, onFailedDownload);
 }
 
-function onStartedDownload(id) {
+function onStartedDownload(id: any) {
   console.log(`Started downloading: ${id}`);
 }
 
-function onFailedDownload(error) {
+function onFailedDownload(error: any) {
   console.log(`Download failed: ${error}`);
 }
 
-function onError(error) {
+function onError(error: any) {
   console.log(`Error: ${error}`);
 }
 
-function onGot(item) {
+function onGot(item: any) {
   const target = item.targetSite || "*://*.example.com/*";
 
   browser.webRequest.onBeforeRequest.addListener(

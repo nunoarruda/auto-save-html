@@ -1,13 +1,15 @@
-let targetSiteElement: HTMLInputElement = null;
+let targetSiteElement: HTMLInputElement | null = null;
 
 function restoreOption() {
   targetSiteElement = document.querySelector("#target-site");
 
-  function setCurrentChoice(result) {
-    targetSiteElement.value = result.targetSite || "*://*.example.com/*";
+  function setCurrentChoice(result: any) {
+    if (targetSiteElement) {
+      targetSiteElement.value = result.targetSite || "*://*.example.com/*";
+    }
   }
 
-  function onError(error) {
+  function onError(error: any) {
     console.log(`Error: ${error}`);
   }
 
@@ -18,7 +20,7 @@ function restoreOption() {
 function saveOption(ev: Event) {
   browser.storage.local
     .set({
-      targetSite: targetSiteElement.value
+      targetSite: targetSiteElement ? targetSiteElement.value : '*://*.example.com/*'
     })
     .then(() => browser.runtime.reload())
     .catch(err => console.error(err));
@@ -27,4 +29,7 @@ function saveOption(ev: Event) {
 }
 
 document.addEventListener("DOMContentLoaded", restoreOption);
-document.querySelector("form").addEventListener("submit", saveOption);
+const form = document.querySelector("form");
+if (form) {
+  form.addEventListener("submit", saveOption);
+}
