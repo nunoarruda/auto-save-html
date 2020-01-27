@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <title>Options</title>
     </head>
 
     <body>
         <form>
-            <label>Target site (use a <a href="https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns" target="_blank">match pattern</a>):</label>
-            <input type="text" id="target-site">
-            <button type="submit">Save</button>
+            <fieldset>
+                <legend>Target sites (Tip: use <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns" target="_blank">match patterns</a>)</legend>
+                <select size="4"></select> <input type="button" value="Delete" id="deleteButton"><br>
+                <br>
+                <label>Add site</label>
+                <input type="text" id="siteInput">
+                <button type="submit">Add</button>
+            </fieldset>
         </form>
         <script src="options.js"></script>
     </body>
-
 </html>

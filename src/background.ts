@@ -60,21 +60,21 @@ function onError(error: any) {
   console.log(`Error: ${error}`);
 }
 
-function onGot(item: any) {
-  const target = item.targetSite || "*://*.example.com/*";
+function onGot(storageObject: browser.storage.StorageObject) {
+  const targets = storageObject.targetSites as string[] || ["*://*.example.com/*"];
 
   browser.webRequest.onBeforeRequest.addListener(
     requestListener,
-    { urls: [target], types: ["main_frame", "sub_frame", "xmlhttprequest"] },
+    { urls: targets, types: ["main_frame", "sub_frame", "xmlhttprequest"] },
     ["blocking"]
   );
 
   browser.webRequest.onHeadersReceived.addListener(
     headersListener,
-    { urls: [target] },
+    { urls: targets },
     ["blocking", "responseHeaders"]
   );
 }
 
-const getting = browser.storage.local.get("targetSite");
+const getting = browser.storage.local.get("targetSites");
 getting.then(onGot, onError);
