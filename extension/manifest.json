@@ -2,7 +2,7 @@
   "description": "Auto Save HTML is a small extension which can be used to automatically download the HTML document(s) of a specified website when browsing that same website.",
   "manifest_version": 2,
   "name": "Auto Save HTML",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "homepage_url": "https://github.com/nunoarruda/auto-save-html",
 
   "options_ui": {
