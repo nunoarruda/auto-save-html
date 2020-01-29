@@ -3,8 +3,9 @@ Auto Save HTML is a small extension which can be used to automatically download 
 
 ## HOW TO USE
 1. Install the extension
-2. Go to Tools -> Add-ons -> Extensions and click the Options (Windows) or Preferences (macOS/Linux) button from Auto Save HTML
-3. Set the target site (use a [match pattern](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns)) and click the Save button
-4. Navigate to the target site. The extension will dump HTML files from the target site into the browser's Downloads folder as AutoSave_{TIMESTAMP}.htm
+2. Click on menu (3-stripes) button -> Add-ons -> Extensions
+3. Click the ellipsis (3-dot) menu and then Options (Windows) or Preferences (macOS/Linux)
+4. Add target sites (use a [match pattern](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Match_patterns))
+5. Navigate to the target sites. The extension will dump HTML files from a target site into the browser's Downloads folder as AutoSave_{TIMESTAMP}.htm
 
 This extension is inspired by [Auto Save Document](http://web.archive.org/web/20171031233032/https://addons.mozilla.org/en-US/firefox/addon/auto-save-document/) and the development motivated by the Auto Save Document's non-compatibility with Firefox Quantum.
