@@ -7,13 +7,13 @@
     </head>
 
     <body>
-        <form>
+        <form id="optionsForm">
             <fieldset>
                 <legend>Target sites (Tip: use <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns" target="_blank">match patterns</a>)</legend>
-                <select size="4"></select> <input type="button" value="Delete" id="deleteButton"><br>
+                <select id="selectElement" size="4"></select> <input id="deleteButton" type="button" value="Delete"><br>
                 <br>
                 <label>Add site</label>
-                <input type="text" id="siteInput">
+                <input id="siteInput" type="text">
                 <button type="submit">Add</button>
             </fieldset>
         </form>

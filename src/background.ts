@@ -61,13 +61,28 @@ function onError(error: any) {
 }
 
 function onGot(storageObject: browser.storage.StorageObject) {
-  const targets = storageObject.targetSites as string[] || ["*://*.example.com/*"];
+  const targets = storageObject.targetSites as string[];
+
+  // quit function if there's no target sites
+  if (!targets.length) {
+    return;
+  }
+
+  // remove possible previous listener
+  if (browser.webRequest.onBeforeRequest.hasListener(requestListener)) {
+    browser.webRequest.onBeforeRequest.removeListener(requestListener)
+  }
 
   browser.webRequest.onBeforeRequest.addListener(
     requestListener,
     { urls: targets, types: ["main_frame", "sub_frame", "xmlhttprequest"] },
     ["blocking"]
   );
+
+  // remove possible previous listener
+  if (browser.webRequest.onHeadersReceived.hasListener(headersListener)) {
+    browser.webRequest.onHeadersReceived.removeListener(headersListener)
+  }
 
   browser.webRequest.onHeadersReceived.addListener(
     headersListener,
@@ -76,5 +91,14 @@ function onGot(storageObject: browser.storage.StorageObject) {
   );
 }
 
-const getting = browser.storage.local.get("targetSites");
-getting.then(onGot, onError);
+function initBackground() {
+  browser.storage.local
+    .get("targetSites")
+    .then(onGot, onError);
+}
+
+browser.storage.onChanged.addListener((changes: browser.storage.ChangeDict, areaName: browser.storage.StorageName) => {
+  if (areaName === 'local') {
+    initBackground()
+  }
+});
