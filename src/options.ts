@@ -23,9 +23,9 @@ function showSelectOptions(selectElement: HTMLSelectElement | null) {
   browser.storage.local
     .get('targetSites')
     .then(storageObject => {
-      const targets = storageObject.targetSites as string[];
+      const targets = storageObject.targetSites as string[] | undefined;
 
-      if (targets.length) {
+      if (targets?.length) {
         targetSitesList = targets;
         addSelectOptions();
       } else {

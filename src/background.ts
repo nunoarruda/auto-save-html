@@ -61,10 +61,10 @@ function onError(error: any) {
 }
 
 function onGot(storageObject: browser.storage.StorageObject) {
-  const targets = storageObject.targetSites as string[];
+  const targets = storageObject.targetSites as string[] | undefined;
 
   // quit function if there's no target sites
-  if (!targets.length) {
+  if (!targets?.length) {
     return;
   }
 
