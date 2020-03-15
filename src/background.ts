@@ -70,7 +70,7 @@ function onGot(storageObject: browser.storage.StorageObject) {
 
   // remove possible previous listener
   if (browser.webRequest.onBeforeRequest.hasListener(requestListener)) {
-    browser.webRequest.onBeforeRequest.removeListener(requestListener)
+    browser.webRequest.onBeforeRequest.removeListener(requestListener);
   }
 
   browser.webRequest.onBeforeRequest.addListener(
@@ -81,7 +81,7 @@ function onGot(storageObject: browser.storage.StorageObject) {
 
   // remove possible previous listener
   if (browser.webRequest.onHeadersReceived.hasListener(headersListener)) {
-    browser.webRequest.onHeadersReceived.removeListener(headersListener)
+    browser.webRequest.onHeadersReceived.removeListener(headersListener);
   }
 
   browser.webRequest.onHeadersReceived.addListener(
@@ -92,13 +92,20 @@ function onGot(storageObject: browser.storage.StorageObject) {
 }
 
 function initBackground() {
-  browser.storage.local
-    .get("targetSites")
-    .then(onGot, onError);
+  browser.storage.local.get("targetSites").then(onGot, onError);
 }
 
-browser.storage.onChanged.addListener((changes: browser.storage.ChangeDict, areaName: browser.storage.StorageName) => {
-  if (areaName === 'local') {
-    initBackground()
+browser.storage.onChanged.addListener(
+  (
+    changes: browser.storage.ChangeDict,
+    areaName: browser.storage.StorageName
+  ) => {
+    if (areaName === "local") {
+      initBackground();
+    }
   }
-});
+);
+
+// init on browser load
+// needed after running the extension for the first time
+initBackground();
